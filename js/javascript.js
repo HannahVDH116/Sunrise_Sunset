@@ -26,33 +26,30 @@ footer.style.display = "none";
 items.forEach(item => {
   const button = document.getElementById(item.name.toLowerCase() + 'City'); // Assuming button IDs are lowercase city names followed by "City"
   if (button) {
-    button.addEventListener('click', () => searchCity(item.name));
+    button.addEventListener('click', () => searchCity(item.name, item.data));
   }
 });
 
 // City Picker 
-function searchCity(cityName) {
-  const item = items.find(item => item.name === cityName);
-  if (item) {
-    fetch(item.data)
-      .then(response => response.json())
-      .then(json => {
-        console.log('Button clicked for', cityName);
-        console.log('Data', item.data);
-        if (json.status === "OK") {
-          const { sunrise, sunset } = json.results;
-          errorMessage.style.display = "none";
-          displayData(sunrise, sunset);
-        } else {
-          errorMessage.style.display = "block";
-          errorMessage.innerHTML = "No Weather for You! (Weather not Found) 🫥 ";
-        }
-      })
-      .catch(error => {
+function searchCity(cityName, cityData) {
+  fetch(cityData)
+    .then(response => response.json())
+    .then(json => {
+      console.log('Button clicked for', cityName);
+      console.log('Data', cityData);
+      if (json.status === "OK") {
+        const { sunrise, sunset } = json.results;
+        errorMessage.style.display = "none";
+        displayData(sunrise, sunset);
+      } else {
         errorMessage.style.display = "block";
-        errorMessage.innerHTML = "No-one's Home! (The API could not be reached) 😢 ";
-      });
-  }
+        errorMessage.innerHTML = "No Weather for You! (Weather not Found) 🫥 ";
+      }
+    })
+    .catch(error => {
+      errorMessage.style.display = "block";
+      errorMessage.innerHTML = "No-one's Home! (The API could not be reached) 😢 ";
+    });
 }
 
 // Call data from fetch to display
