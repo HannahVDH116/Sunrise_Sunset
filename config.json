@@ -1,0 +1,39 @@
+{
+  "cities" : [
+    {
+      "name" : "Brisbane",
+      "latitude" : "-27.469770",
+      "longitude" : "153.025131"
+    },
+    {
+    "name": "Sydney",
+    "latitude" : "-33.868820",
+    "longitude" : "151.209290"
+  },
+  {
+    "name": "Melbourne",
+    "latitude" : "-37.813629",
+    "longitude" : "144.963058"
+  },
+  {
+    "name": "Hobart",
+    "latitude" : "-42.87936000",
+    "longitude" : "147.32941000"
+  },
+  {
+     "name": "Adelaide",
+    "latitude" : "-34.928497",
+    "longitude" : "138.600739"
+  },
+ {
+  "name" : "Perth",
+  "latitude" : "-31.950527",
+  "longitude" : "115.860458"
+ },
+  {
+    "name" : "Darwin",
+    "latitude" : "-12.46044",
+    "longitude" : "130.841069"
+  }
+  ]
+}
